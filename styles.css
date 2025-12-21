@@ -308,6 +308,21 @@ body {
     padding: 120px 40px 60px;
     position: relative;
     z-index: 10;
+    /* Hero Background */
+    background-image: url('SC/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Dark Overlay for Readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.7);
+    z-index: -1;
 }
 
 .hero-content {
