@@ -2,9 +2,9 @@
 :root {
     --cyan: #00f5ff;
     --purple: #a855f7;
-    --accent: #10B981;
-    --accent-dark: #059669;
-    --accent-light: #34D399;
+    --accent: #0ea5e9;
+    --accent-dark: #0284c7;
+    --accent-light: #38bdf8;
     --dark: #0a0a0f;
     --dark-alt: #0f0f18;
     --glass: rgba(255, 255, 255, 0.03);
@@ -319,6 +319,45 @@ body {
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
+/* Mobile Hero Fixes */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 140px;
+        /* More space for header */
+        padding-bottom: 40px;
+        background-position: center top;
+        /* Focus on top part of image if needed */
+    }
+
+    .hero-text {
+        position: relative;
+        z-index: 20;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--cyan);
+        /* Make it pop */
+        font-weight: 700;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        /* Readable on image */
+        margin-bottom: 20px;
+    }
+
+    .hero-image {
+        margin-top: 20px;
+        order: -1;
+        /* Put image on top if desired, or keep logic */
+    }
+
+    /* Ensure "Fullstack" text (hero-subtitle) is visible */
+    .hero-content {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Image top, text bottom usually, or adjust */
+    }
+}
+
 /* Premium Radial Overlay for Hero */
 .hero-section::before {
     content: '';
@@ -424,8 +463,8 @@ body {
     border-radius: 50%;
     overflow: visible;
     padding: 5px;
-    background: linear-gradient(135deg, #059669, #10B981, #34D399);
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #0284c7, #0ea5e9, #38bdf8);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
 }
 
 .image-frame::before {
@@ -455,7 +494,7 @@ body {
 .image-glow {
     position: absolute;
     inset: -20px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.2), transparent 70%);
     z-index: -2;
     border-radius: 50%;
 }
@@ -481,12 +520,12 @@ body {
     right: 15px;
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, #059669, #10B981);
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.5);
     border: 3px solid #fff;
     z-index: 10;
 }
@@ -923,6 +962,10 @@ body {
     padding: 30px;
     text-align: center;
     transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .cert-card:hover {
