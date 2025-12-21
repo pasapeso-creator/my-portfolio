@@ -233,6 +233,77 @@
             font-size: 0.7rem;
             font-weight: 500;
         }
+
+        /* ===== Mobile Responsive Fixes ===== */
+        @media (max-width: 1024px) {
+            .home-skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .home-skills-grid,
+            .home-projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+
+            .home-project-card {
+                flex-direction: column;
+            }
+
+            .project-thumb {
+                width: 100%;
+                height: 180px;
+            }
+
+            .skill-box {
+                padding: 20px;
+            }
+
+            .skill-box h4 {
+                font-size: 1rem;
+            }
+
+            .skill-row .name {
+                font-size: 0.85rem;
+            }
+
+            .skill-row .percent {
+                font-size: 0.75rem;
+            }
+
+            .mini-bar {
+                width: 40px;
+            }
+
+            .tech-icon-float {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-skills-grid,
+            .home-projects-grid {
+                gap: 12px;
+            }
+
+            .skill-box {
+                padding: 16px;
+            }
+
+            .project-thumb {
+                height: 150px;
+            }
+
+            .project-info h3 {
+                font-size: 1rem;
+            }
+
+            .project-info p {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 
