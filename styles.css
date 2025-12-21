@@ -308,20 +308,23 @@ body {
     padding: 120px 40px 60px;
     position: relative;
     z-index: 10;
-    /* Hero Background */
+    /* Hero Background with Seamless Blend */
     background-image: url('SC/hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    /* Professional Fade at Bottom */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-/* Dark Overlay for Readability */
+/* Premium Radial Overlay for Hero */
 .hero-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(10, 10, 15, 0.7);
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.4) 0%, rgba(10, 10, 15, 0.9) 100%);
     z-index: -1;
 }
 
@@ -333,6 +336,8 @@ body {
     gap: 60px;
     align-items: center;
 }
+
+
 
 .hero-text {
     max-width: 600px;
@@ -629,11 +634,30 @@ body {
 }
 
 /* ===== Page Header ===== */
+/* ===== Page Header ===== */
 .page-header {
-    padding: 160px 40px 80px;
+    padding: 160px 40px 100px;
     text-align: center;
     position: relative;
     z-index: 10;
+    /* About Page Background with Seamless Blend */
+    background-image: url('SC/about.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /* Professional Fade at Bottom */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* Premium Radial Overlay for Page Header */
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.5) 0%, rgba(10, 10, 15, 0.95) 100%);
+    z-index: -1;
 }
 
 .page-title {
@@ -1474,6 +1498,131 @@ body {
         width: 100%;
         height: 150px;
     }
+
+    /* About Page Mobile Fixes */
+    .page-header {
+        padding: 140px 16px 60px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .bio-section {
+        padding: 40px 16px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    /* Fix Timeline Overflow */
+    .timeline {
+        max-width: 100%;
+        padding-right: 16px;
+    }
+
+    .timeline::before {
+        left: 12px;
+    }
+
+    .timeline-item {
+        padding-left: 45px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-marker {
+        left: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    .timeline-marker svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-content {
+        padding: 16px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-stats {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .timeline-stat {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    /* Circular Charts Mobile */
+    .circular-charts {
+        gap: 24px;
+    }
+
+    .circular-chart {
+        width: 100px;
+        height: 100px;
+    }
+
+    .circular-chart svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .chart-label .percent {
+        font-size: 1.4rem;
+    }
+
+    .chart-label .name {
+        font-size: 0.7rem;
+    }
+
+    /* Bar Charts Mobile */
+    .chart-container {
+        padding: 20px;
+    }
+
+    .bar-label {
+        min-width: 70px;
+        font-size: 0.8rem;
+    }
+
+    .bar-percent {
+        font-size: 0.75rem;
+        min-width: 40px;
+    }
+
+    .bar-track {
+        height: 8px;
+    }
+
+    /* Certifications Grid */
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .cert-card {
+        padding: 20px;
+    }
+
+    .cert-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .cert-card p {
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1520,7 +1669,43 @@ body {
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    /* About Page Extra Small Fixes */
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-content {
+        padding: 12px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .timeline-desc {
+        font-size: 0.85rem;
+    }
+
+    .circular-chart {
+        width: 90px;
+        height: 90px;
+    }
+
+    .circular-chart svg {
+        width: 90px;
+        height: 90px;
+    }
+
+    .chart-label .percent {
+        font-size: 1.2rem;
+    }
+
+    .bar-label {
+        min-width: 60px;
+        font-size: 0.75rem;
     }
 }
 
