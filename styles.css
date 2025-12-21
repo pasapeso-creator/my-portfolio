@@ -9,6 +9,8 @@
     --dark-alt: #0f0f18;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+    /* Mobile-first touch targets */
+    --min-touch-target: 44px;
 }
 
 /* ===== Base Styles ===== */
@@ -59,10 +61,13 @@ body {
 /* ===== Glassmorphism ===== */
 .glass {
     background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
+    /* GPU acceleration for smoother animations */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* ===== Header ===== */
@@ -599,6 +604,7 @@ body {
     margin-bottom: 8px;
     background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.7));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1433,5 +1439,120 @@ body {
 
     .social-btn {
         justify-content: center;
+    }
+
+    /* Extra small screen optimizations */
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem;
+    }
+
+    .image-frame {
+        width: 200px;
+        height: 200px;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===== Mobile Performance Optimizations ===== */
+@media (max-width: 768px) {
+
+    /* Reduce backdrop-filter intensity for better performance */
+    .glass,
+    .header-glass,
+    .skill-box,
+    .stat-card,
+    .project-card,
+    .contact-form-card {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Disable animations on mobile for better performance */
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Simpler transitions on mobile */
+    * {
+        transition-duration: 0.2s !important;
+    }
+
+    /* Ensure touch targets are at least 44px */
+    .nav-link,
+    .pulse-btn,
+    .glass-btn,
+    .social-btn,
+    button,
+    a {
+        min-height: var(--min-touch-target);
+    }
+}
+
+/* ===== Reduce Motion for accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .floating-badge,
+    .status-dot,
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
+/* ===== High contrast mode support ===== */
+@media (prefers-contrast: high) {
+    :root {
+        --glass-border: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* ===== Landscape mobile optimization ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 80px 20px 40px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .image-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .scroll-indicator {
+        display: none;
     }
 }
