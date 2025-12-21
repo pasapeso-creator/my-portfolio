@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESO | Full Stack Developer</title>
+    <meta name="description" content="PESO - Full Stack Developer crafting digital universes">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lalezar&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Floating Tech Icons */
+        .floating-tech-icons {
+            position: relative;
+        }
+
+        .tech-icon-float {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: float-icon 4s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .tech-icon-float:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+
+        .tech-icon-float.pos-1 {
+            top: 20px;
+            left: -35px;
+            animation-delay: 0s;
+        }
+
+        .tech-icon-float.pos-2 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0.5s;
+        }
+
+        .tech-icon-float.pos-3 {
+            bottom: 80px;
+            left: -45px;
+            animation-delay: 1s;
+        }
+
+        .tech-icon-float.pos-4 {
+            bottom: 0;
+            right: -35px;
+            animation-delay: 1.5s;
+        }
+
+        .tech-icon-float.pos-5 {
+            top: 45%;
+            left: -55px;
+            animation-delay: 2s;
+        }
+
+        .tech-icon-float.pos-6 {
+            top: 35%;
+            right: -45px;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float-icon {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(5deg);
+            }
+        }
+
+        /* Home Skills Section */
+        .home-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .skill-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+        }
+
+        .skill-box h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-row:last-child {
+            border-bottom: none;
+        }
+
+        .skill-row .name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .skill-row .percent {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--cyan);
+        }
+
+        .mini-bar {
+            width: 60px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-left: 8px;
+        }
+
+        .mini-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            width: 0;
+            transition: width 1s ease-out;
+        }
+
+        /* Featured Projects Home */
+        .home-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .home-project-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s;
+            display: flex;
+            gap: 20px;
+        }
+
+        .home-project-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.1);
+        }
+
+        .project-thumb {
+            width: 120px;
+            height: 90px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .home-project-card:hover .project-info h3 {
+            color: var(--cyan);
+        }
+
+        .project-info p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .project-tags-mini {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tag-mini {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="noise">
+    <canvas id="particles"></canvas>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50">
+        <div class="header-glass max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2" />
+                    <path d="M12 20l5 5 11-11" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#059669" />
+                            <stop offset="50%" stop-color="#10B981" />
+                            <stop offset="100%" stop-color="#34D399" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text" style="font-family: 'Lalezar', cursive; font-size: 1.8rem;">بيسو</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link active">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9,22 9,12 15,12 15,22" />
+                    </svg>
+                    Home
+                </a>
+                <a href="about.html" class="nav-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    About
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    Projects
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Contact
+                </a>
+                <a href="contact.html" class="pulse-btn magnetic">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Hire Me
+                </a>
+            </nav>
+
+            <button class="mobile-menu" onclick="toggleMobileNav()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="close-btn" onclick="toggleMobileNav()">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="pulse-btn">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="status-badge reveal">
+                    <span class="status-dot"></span>
+                    <span class="mono">Available for projects</span>
+                </div>
+                <h1 class="hero-title reveal">
+                    <span class="glow-text">Crafting Digital</span><br>
+                    <span>Universes.</span>
+                </h1>
+                <p class="hero-subtitle reveal">Full Stack Developer</p>
+                <p class="hero-desc reveal">
+                    Hello, I'm <span class="highlight">PESO</span>. 5+ years of experience transforming ideas into
+                    exceptional digital reality.
+                </p>
+                <div class="hero-ctas reveal">
+                    <a href="projects.html" class="pulse-btn magnetic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        Explore Work
+                    </a>
+                    <a href="contact.html" class="glass-btn magnetic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image reveal floating-tech-icons">
+                <!-- Floating Tech Icons -->
+                <div class="tech-icon-float pos-1"><i class="devicon-html5-plain colored"></i></div>
+                <div class="tech-icon-float pos-2"><i class="devicon-css3-plain colored"></i></div>
+                <div class="tech-icon-float pos-3"><i class="devicon-javascript-plain colored"></i></div>
+                <div class="tech-icon-float pos-4"><i class="devicon-react-original colored"></i></div>
+                <div class="tech-icon-float pos-5"><i class="devicon-nodejs-plain colored"></i></div>
+                <div class="tech-icon-float pos-6"><i class="devicon-python-plain colored"></i></div>
+
+                <div class="image-frame-wrapper">
+                    <div class="image-frame">
+                        <img src="SC/peso-photo.jpg" alt="PESO - Full Stack Developer">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="verify-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20,6 9,17 4,12" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="floating-badge badge-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16,18 22,12 16,6" />
+                        <polyline points="8,6 2,12 8,18" />
+                    </svg>
+                    <span>5+ Years</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon
+                            points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                    </svg>
+                    <span>50+ Projects</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator reveal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card reveal">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#statGrad1)"
+                        stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                        <defs>
+                            <linearGradient id="statGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f5ff" />
+                                <stop offset="100%" stop-color="#a855f7" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h3 class="stat-number">50+</h3>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#statGrad2)"
+                        stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        <defs>
+                            <linearGradient id="statGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#ec4899" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h3 class="stat-number">30+</h3>
+                <p class="stat-label">Happy Clients</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#statGrad3)"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12,6 12,12 16,14" />
+                        <defs>
+                            <linearGradient id="statGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ec4899" />
+                                <stop offset="100%" stop-color="#00f5ff" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h3 class="stat-number">5+</h3>
+                <p class="stat-label">Years Experience</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#statGrad4)"
+                        stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                        <defs>
+                            <linearGradient id="statGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#22c55e" />
+                                <stop offset="100%" stop-color="#00f5ff" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h3 class="stat-number">10+</h3>
+                <p class="stat-label">Technologies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-20 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 reveal"><span class="glow-text">Featured Projects</span></h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto reveal">A selection of my recent work showcasing
+                full stack development, creative problem-solving, and modern design principles.</p>
+
+            <div class="home-projects-grid">
+                <a href="https://peso-ai-is-here.netlify.app/generate" target="_blank" class="home-project-card reveal">
+                    <div class="project-thumb">
+                        <img src="SC/generate.jpg" alt="PESO Image Generator">
+                    </div>
+                    <div class="project-info">
+                        <h3>PESO Image Generator</h3>
+                        <p>Advanced image generation tool using the PESO model. Create stunning visuals with
+                            cutting-edge AI.</p>
+                        <div class="project-tags-mini">
+                            <span class="tag-mini" style="background:rgba(0,245,255,0.15);color:#00f5ff;">AI</span>
+                            <span class="tag-mini" style="background:rgba(168,85,247,0.15);color:#a855f7;">PESO</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://wonderful-biscuit-6f2ea9.netlify.app/" target="_blank"
+                    class="home-project-card reveal">
+                    <div class="project-thumb">
+                        <img src="SC/Capture.jpg" alt="PESO AI">
+                    </div>
+                    <div class="project-info">
+                        <h3>PESO AI - Arabic Language Model</h3>
+                        <p>Pioneering Arabic language model under active development. Launch in 5 months with daily
+                            updates.</p>
+                        <div class="project-tags-mini">
+                            <span class="tag-mini" style="background:rgba(236,72,153,0.15);color:#ec4899;">NLP</span>
+                            <span class="tag-mini"
+                                style="background:rgba(59,130,246,0.15);color:#3b82f6;">Research</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://boisterous-basbousa-a6c8b4.netlify.app/" target="_blank"
+                    class="home-project-card reveal">
+                    <div class="project-thumb">
+                        <img src="SC/student-register.jpg" alt="Student Registration">
+                    </div>
+                    <div class="project-info">
+                        <h3>Student Registration System</h3>
+                        <p>Comprehensive online system for student registration, subscription management, and
+                            scheduling.</p>
+                        <div class="project-tags-mini">
+                            <span class="tag-mini" style="background:rgba(34,197,94,0.15);color:#22c55e;">Web</span>
+                            <span class="tag-mini"
+                                style="background:rgba(234,179,8,0.15);color:#eab308;">Education</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://boisterous-basbousa-a6c8b4.netlify.app/" target="_blank"
+                    class="home-project-card reveal">
+                    <div class="project-thumb">
+                        <img src="SC/physics.jpg" alt="Physics Center">
+                    </div>
+                    <div class="project-info">
+                        <h3>Physics Center Management</h3>
+                        <p>Complete management system for tracking students, schedules, invoices, and administrative
+                            reports.</p>
+                        <div class="project-tags-mini">
+                            <span class="tag-mini"
+                                style="background:rgba(99,102,241,0.15);color:#6366f1;">Management</span>
+                            <span class="tag-mini"
+                                style="background:rgba(234,179,8,0.15);color:#eab308;">Education</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center mt-10 reveal">
+                <a href="projects.html" class="glass-btn magnetic">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="py-20 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 reveal"><span class="glow-text">Technical Skills</span></h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto reveal">Proficient in modern web technologies
+                with expertise across the full stack, from frontend frameworks to cloud infrastructure.</p>
+
+            <div class="home-skills-grid" id="skillsGrid">
+                <!-- Frontend -->
+                <div class="skill-box reveal">
+                    <h4><i class="devicon-react-original colored"></i> Frontend</h4>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-react-original colored"></i> React</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">95%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="95"
+                                    style="background:linear-gradient(90deg,#00f5ff,#00bcd4);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">90%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="90"
+                                    style="background:linear-gradient(90deg,#00f5ff,#00bcd4);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-vuejs-plain colored"></i> Vue.js</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">85%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="85"
+                                    style="background:linear-gradient(90deg,#00f5ff,#00bcd4);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-box reveal">
+                    <h4><i class="devicon-nodejs-plain colored"></i> Backend</h4>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">95%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="95"
+                                    style="background:linear-gradient(90deg,#a855f7,#7c3aed);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-python-plain colored"></i> Python</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">90%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="90"
+                                    style="background:linear-gradient(90deg,#a855f7,#7c3aed);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-django-plain colored"></i> Django</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">80%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="80"
+                                    style="background:linear-gradient(90deg,#a855f7,#7c3aed);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="skill-box reveal">
+                    <h4><i class="devicon-mongodb-plain colored"></i> Database</h4>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">90%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="90"
+                                    style="background:linear-gradient(90deg,#ec4899,#db2777);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">85%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="85"
+                                    style="background:linear-gradient(90deg,#ec4899,#db2777);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-redis-plain colored"></i> Redis</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">80%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="80"
+                                    style="background:linear-gradient(90deg,#ec4899,#db2777);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud/DevOps -->
+                <div class="skill-box reveal">
+                    <h4><i class="devicon-amazonwebservices-plain-wordmark colored"></i> Cloud/DevOps</h4>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">85%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="85"
+                                    style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-docker-plain colored"></i> Docker</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">90%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="90"
+                                    style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="name"><i class="devicon-kubernetes-plain colored"></i> Kubernetes</span>
+                        <div style="display:flex;align-items:center;">
+                            <span class="percent">75%</span>
+                            <div class="mini-bar">
+                                <div class="mini-bar-fill" data-width="75"
+                                    style="background:linear-gradient(90deg,#22c55e,#16a34a);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 relative z-10">
+        <div class="max-w-3xl mx-auto">
+            <div class="glass p-12 text-center reveal" style="border-radius:24px;">
+                <h2 class="text-3xl font-bold mb-4">Ready to Build Something Amazing?</h2>
+                <p class="text-gray-400 mb-8">Let's collaborate on your next project. I'm always interested in
+                    challenging opportunities and innovative solutions.</p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <a href="contact.html" class="pulse-btn magnetic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        Start a Project
+                    </a>
+                    <a href="about.html" class="glass-btn magnetic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        Learn More About Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 PESO. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Animate floating icons
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo('.tech-icon-float',
+            { scale: 0, opacity: 0, rotation: -180 },
+            {
+                scale: 1, opacity: 1, rotation: 0,
+                duration: 0.8, stagger: 0.12,
+                ease: 'elastic.out(1, 0.5)',
+                scrollTrigger: { trigger: '.floating-tech-icons', start: 'top 80%' }
+            }
+        );
+
+        // Animate mini bars on scroll
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.mini-bar-fill').forEach((bar, i) => {
+                        setTimeout(() => {
+                            bar.style.width = bar.dataset.width + '%';
+                        }, i * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skill-box').forEach(box => skillsObserver.observe(box));
+
+        // Project cards hover animation
+        document.querySelectorAll('.home-project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card.querySelector('.project-thumb img'), {
+                    scale: 1.1, duration: 0.4, ease: 'power2.out'
+                });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card.querySelector('.project-thumb img'), {
+                    scale: 1, duration: 0.4, ease: 'power2.out'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | PESO - Full Stack Developer</title>
+    <meta name="description" content="Learn about PESO's experience, skills and certifications">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Lalezar&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Floating Tech Icons */
+        .floating-tech-icons {
+            position: relative;
+        }
+
+        .tech-icon-float {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: float-icon 4s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-icon-float:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+
+        .tech-icon-float.pos-1 {
+            top: 0;
+            left: -45px;
+            animation-delay: 0s;
+        }
+
+        .tech-icon-float.pos-2 {
+            top: -30px;
+            right: -25px;
+            animation-delay: 0.5s;
+        }
+
+        .tech-icon-float.pos-3 {
+            bottom: 60px;
+            left: -55px;
+            animation-delay: 1s;
+        }
+
+        .tech-icon-float.pos-4 {
+            bottom: -15px;
+            right: -45px;
+            animation-delay: 1.5s;
+        }
+
+        .tech-icon-float.pos-5 {
+            top: 50%;
+            left: -65px;
+            animation-delay: 2s;
+        }
+
+        .tech-icon-float.pos-6 {
+            top: 30%;
+            right: -55px;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float-icon {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        /* Animated Bar Chart */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .bar-label {
+            min-width: 100px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bar-fill.cyan {
+            background: linear-gradient(90deg, #00f5ff, #00bcd4);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+        }
+
+        .bar-fill.purple {
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+        }
+
+        .bar-fill.pink {
+            background: linear-gradient(90deg, #ec4899, #db2777);
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+        }
+
+        .bar-fill.green {
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+        }
+
+        .bar-percent {
+            min-width: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--cyan);
+        }
+
+        /* Circular Progress */
+        .circular-charts {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .circular-chart {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+
+        .circular-chart svg {
+            transform: rotate(-90deg);
+        }
+
+        .circular-chart circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .circle-bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .circle-fill {
+            stroke-dasharray: 377;
+            stroke-dashoffset: 377;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .circle-fill.cyan {
+            stroke: url(#gradCyan);
+            filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
+        }
+
+        .circle-fill.purple {
+            stroke: url(#gradPurple);
+            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+        }
+
+        .circle-fill.pink {
+            stroke: url(#gradPink);
+            filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+        }
+
+        .circle-fill.green {
+            stroke: url(#gradGreen);
+            filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));
+        }
+
+        .circular-chart .chart-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .chart-label .percent {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .chart-label .name {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+        }
+
+        /* Radar Chart */
+        .radar-chart {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .radar-chart svg {
+            max-width: 350px;
+            width: 100%;
+        }
+
+        /* Timeline Enhanced */
+        .timeline-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .timeline-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        .timeline-stat i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="noise">
+    <canvas id="particles"></canvas>
+
+    <!-- SVG Gradients -->
+    <svg style="position:absolute;width:0;height:0;">
+        <defs>
+            <linearGradient id="gradCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00f5ff" />
+                <stop offset="100%" stop-color="#00bcd4" />
+            </linearGradient>
+            <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#a855f7" />
+                <stop offset="100%" stop-color="#7c3aed" />
+            </linearGradient>
+            <linearGradient id="gradPink" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ec4899" />
+                <stop offset="100%" stop-color="#db2777" />
+            </linearGradient>
+            <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22c55e" />
+                <stop offset="100%" stop-color="#16a34a" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50">
+        <div class="header-glass max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="logo-container">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2" />
+                    <path d="M12 20l5 5 11-11" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#059669" />
+                            <stop offset="50%" stop-color="#10B981" />
+                            <stop offset="100%" stop-color="#34D399" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text" style="font-family: 'Lalezar', cursive; font-size: 1.8rem;">بيسو</span>
+            </a>
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9,22 9,12 15,12 15,22" />
+                    </svg>Home</a>
+                <a href="about.html" class="nav-link active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>About</a>
+                <a href="projects.html" class="nav-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>Projects</a>
+                <a href="contact.html" class="nav-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>Contact</a>
+                <a href="contact.html" class="pulse-btn magnetic"><svg width="18" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>Hire Me</a>
+            </nav>
+            <button class="mobile-menu" onclick="toggleMobileNav()"><svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg></button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="close-btn" onclick="toggleMobileNav()"><svg width="32" height="32" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg></button>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="pulse-btn">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="page-title reveal"><span class="glow-text">About Me</span></h1>
+        <p class="page-subtitle reveal">Passionate engineer specializing in modern web technologies</p>
+    </section>
+
+    <!-- Bio Section with Floating Icons -->
+    <section class="bio-section">
+        <div class="bio-container">
+            <div class="bio-image reveal floating-tech-icons">
+                <!-- Floating Tech Icons -->
+                <div class="tech-icon-float pos-1"><i class="devicon-html5-plain colored"></i></div>
+                <div class="tech-icon-float pos-2"><i class="devicon-css3-plain colored"></i></div>
+                <div class="tech-icon-float pos-3"><i class="devicon-javascript-plain colored"></i></div>
+                <div class="tech-icon-float pos-4"><i class="devicon-react-original colored"></i></div>
+                <div class="tech-icon-float pos-5"><i class="devicon-nodejs-plain colored"></i></div>
+                <div class="tech-icon-float pos-6"><i class="devicon-python-plain colored"></i></div>
+
+                <div class="image-frame-wrapper">
+                    <div class="image-frame large">
+                        <img src="SC/peso-photo.jpg" alt="PESO">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="verify-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20,6 9,17 4,12" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bio-content reveal">
+                <h2 class="section-title">Who is PESO?</h2>
+                <p class="bio-text">I'm a passionate Full Stack Developer with over 5 years of experience building
+                    modern, scalable web applications. I specialize in creating digital solutions that combine beautiful
+                    design with powerful functionality.</p>
+                <p class="bio-text">My journey in tech started with curiosity and evolved into a career dedicated to
+                    crafting exceptional digital experiences. I believe in clean code, user-centered design, and
+                    continuous learning.</p>
+                <div class="bio-highlights">
+                    <div class="highlight-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20,6 9,17 4,12" />
+                        </svg>
+                        <span>Clean, maintainable code</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20,6 9,17 4,12" />
+                        </svg>
+                        <span>User-focused solutions</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20,6 9,17 4,12" />
+                        </svg>
+                        <span>Modern tech stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Circular Charts -->
+    <section class="skills-section">
+        <div class="section-container">
+            <h2 class="section-title text-center reveal"><span class="glow-text">Skills Proficiency</span></h2>
+
+            <!-- Circular Progress Charts -->
+            <div class="circular-charts reveal">
+                <div class="circular-chart" data-percent="95">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle class="circle-bg" cx="70" cy="70" r="60" />
+                        <circle class="circle-fill cyan" cx="70" cy="70" r="60" />
+                    </svg>
+                    <div class="chart-label">
+                        <div class="percent" style="color:#00f5ff">95%</div>
+                        <div class="name">Frontend</div>
+                    </div>
+                </div>
+                <div class="circular-chart" data-percent="90">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle class="circle-bg" cx="70" cy="70" r="60" />
+                        <circle class="circle-fill purple" cx="70" cy="70" r="60" />
+                    </svg>
+                    <div class="chart-label">
+                        <div class="percent" style="color:#a855f7">90%</div>
+                        <div class="name">Backend</div>
+                    </div>
+                </div>
+                <div class="circular-chart" data-percent="85">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle class="circle-bg" cx="70" cy="70" r="60" />
+                        <circle class="circle-fill pink" cx="70" cy="70" r="60" />
+                    </svg>
+                    <div class="chart-label">
+                        <div class="percent" style="color:#ec4899">85%</div>
+                        <div class="name">Database</div>
+                    </div>
+                </div>
+                <div class="circular-chart" data-percent="88">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle class="circle-bg" cx="70" cy="70" r="60" />
+                        <circle class="circle-fill green" cx="70" cy="70" r="60" />
+                    </svg>
+                    <div class="chart-label">
+                        <div class="percent" style="color:#22c55e">88%</div>
+                        <div class="name">Cloud</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bar Charts -->
+            <div class="chart-container reveal">
+                <h3 style="margin-bottom:24px;font-size:1.2rem;">Technology Expertise</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-react-original colored"
+                                style="margin-right:8px"></i>React</span>
+                        <div class="bar-track">
+                            <div class="bar-fill cyan" data-width="95"></div>
+                        </div>
+                        <span class="bar-percent">95%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-vuejs-plain colored"
+                                style="margin-right:8px"></i>Vue.js</span>
+                        <div class="bar-track">
+                            <div class="bar-fill cyan" data-width="88"></div>
+                        </div>
+                        <span class="bar-percent">88%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-typescript-plain colored"
+                                style="margin-right:8px"></i>TypeScript</span>
+                        <div class="bar-track">
+                            <div class="bar-fill cyan" data-width="90"></div>
+                        </div>
+                        <span class="bar-percent">90%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-nodejs-plain colored"
+                                style="margin-right:8px"></i>Node.js</span>
+                        <div class="bar-track">
+                            <div class="bar-fill purple" data-width="92"></div>
+                        </div>
+                        <span class="bar-percent">92%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-python-plain colored"
+                                style="margin-right:8px"></i>Python</span>
+                        <div class="bar-track">
+                            <div class="bar-fill purple" data-width="85"></div>
+                        </div>
+                        <span class="bar-percent">85%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-mongodb-plain colored"
+                                style="margin-right:8px"></i>MongoDB</span>
+                        <div class="bar-track">
+                            <div class="bar-fill pink" data-width="90"></div>
+                        </div>
+                        <span class="bar-percent">90%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-postgresql-plain colored"
+                                style="margin-right:8px"></i>SQL</span>
+                        <div class="bar-track">
+                            <div class="bar-fill pink" data-width="85"></div>
+                        </div>
+                        <span class="bar-percent">85%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-amazonwebservices-plain-wordmark colored"
+                                style="margin-right:8px"></i>AWS</span>
+                        <div class="bar-track">
+                            <div class="bar-fill green" data-width="88"></div>
+                        </div>
+                        <span class="bar-percent">88%</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-label"><i class="devicon-docker-plain colored"
+                                style="margin-right:8px"></i>Docker</span>
+                        <div class="bar-track">
+                            <div class="bar-fill green" data-width="82"></div>
+                        </div>
+                        <span class="bar-percent">82%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-container">
+            <h2 class="section-title text-center reveal"><span class="glow-text">Career Timeline</span></h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                    </div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date">2022 - Present</span>
+                        <h3>Senior Full Stack Developer</h3>
+                        <p class="timeline-company">@ Tech Innovations Inc.</p>
+                        <p class="timeline-desc">Leading development of enterprise-scale applications using React,
+                            Node.js, and cloud technologies.</p>
+                        <div class="timeline-stats">
+                            <div class="timeline-stat"><i class="devicon-react-original colored"></i> React</div>
+                            <div class="timeline-stat"><i class="devicon-nodejs-plain colored"></i> Node</div>
+                            <div class="timeline-stat"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+                                AWS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                    </div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date purple">2020 - 2022</span>
+                        <h3>Full Stack Developer</h3>
+                        <p class="timeline-company">@ Digital Solutions Agency</p>
+                        <p class="timeline-desc">Built custom web solutions for diverse clients across multiple
+                            industries.</p>
+                        <div class="timeline-stats">
+                            <div class="timeline-stat"><i class="devicon-vuejs-plain colored"></i> Vue</div>
+                            <div class="timeline-stat"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                            <div class="timeline-stat"><i class="devicon-docker-plain colored"></i> Docker</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker pink">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                    </div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date pink">2019 - 2020</span>
+                        <h3>Frontend Developer</h3>
+                        <p class="timeline-company">@ Startup Venture Labs</p>
+                        <p class="timeline-desc">Started my career building responsive and interactive web interfaces.
+                        </p>
+                        <div class="timeline-stats">
+                            <div class="timeline-stat"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                            <div class="timeline-stat"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                            <div class="timeline-stat"><i class="devicon-javascript-plain colored"></i> JS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="section-container">
+            <h2 class="section-title text-center reveal"><span class="glow-text">Certifications</span></h2>
+            <div class="certs-grid">
+                <div class="cert-card glass reveal">
+                    <i class="devicon-amazonwebservices-plain-wordmark colored" style="font-size:48px"></i>
+                    <h3>AWS Certified Developer</h3>
+                    <p>Amazon Web Services</p>
+                </div>
+                <div class="cert-card glass reveal">
+                    <i class="devicon-mongodb-plain colored" style="font-size:48px"></i>
+                    <h3>MongoDB Developer</h3>
+                    <p>MongoDB University</p>
+                </div>
+                <div class="cert-card glass reveal">
+                    <i class="devicon-react-original colored" style="font-size:48px"></i>
+                    <h3>React Professional</h3>
+                    <p>Meta</p>
+                </div>
+                <div class="cert-card glass reveal">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    <h3>B.S. Computer Science</h3>
+                    <p>University Degree</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 PESO. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // ===== Professional GSAP Chart Animations =====
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate floating tech icons with stagger
+        gsap.fromTo('.tech-icon-float',
+            { scale: 0, opacity: 0, rotation: -180 },
+            {
+                scale: 1,
+                opacity: 1,
+                rotation: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'elastic.out(1, 0.5)',
+                scrollTrigger: {
+                    trigger: '.floating-tech-icons',
+                    start: 'top 80%'
+                }
+            }
+        );
+
+        // Circular Charts Animation
+        const circularCharts = document.querySelectorAll('.circular-chart');
+
+        circularCharts.forEach((chart, index) => {
+            const percent = parseInt(chart.dataset.percent);
+            const circle = chart.querySelector('.circle-fill');
+            const percentDisplay = chart.querySelector('.percent');
+            const circumference = 2 * Math.PI * 60; // radius = 60
+
+            // Set initial state
+            gsap.set(circle, { strokeDasharray: circumference, strokeDashoffset: circumference });
+
+            // Create animation timeline
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.circular-charts',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Animate the circle stroke with spring effect
+            tl.to(circle, {
+                strokeDashoffset: circumference - (circumference * percent / 100),
+                duration: 2,
+                delay: index * 0.2,
+                ease: 'power3.out'
+            }, 0);
+
+            // Count up the percentage number
+            const counter = { value: 0 };
+            tl.to(counter, {
+                value: percent,
+                duration: 2,
+                delay: index * 0.2,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    percentDisplay.textContent = Math.round(counter.value) + '%';
+                }
+            }, 0);
+
+            // Add glow pulse effect
+            tl.to(circle, {
+                filter: 'drop-shadow(0 0 20px currentColor)',
+                duration: 0.3,
+                delay: index * 0.2 + 1.5,
+                yoyo: true,
+                repeat: 1,
+                ease: 'power2.inOut'
+            }, 0);
+
+            // Scale bounce effect on the chart
+            tl.fromTo(chart,
+                { scale: 0.8, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    ease: 'back.out(1.7)'
+                },
+                0);
+        });
+
+        // Bar Charts Animation with Stagger
+        const barItems = document.querySelectorAll('.bar-item');
+
+        barItems.forEach((item, index) => {
+            const bar = item.querySelector('.bar-fill');
+            const percentText = item.querySelector('.bar-percent');
+            const targetWidth = parseInt(bar.dataset.width);
+
+            // Create timeline for each bar
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.chart-container',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Slide in the entire bar item
+            tl.fromTo(item,
+                { x: -50, opacity: 0 },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: 'power2.out'
+                },
+                0);
+
+            // Animate the bar fill with elastic effect
+            tl.to(bar, {
+                width: targetWidth + '%',
+                duration: 1.5,
+                delay: index * 0.1 + 0.3,
+                ease: 'elastic.out(1, 0.7)'
+            }, 0);
+
+            // Add shimmer effect to the bar
+            tl.to(bar, {
+                backgroundPosition: '200% 0',
+                duration: 1,
+                delay: index * 0.1 + 1,
+                ease: 'none'
+            }, 0);
+
+            // Count up the percentage
+            const counter = { value: 0 };
+            tl.to(counter, {
+                value: targetWidth,
+                duration: 1.5,
+                delay: index * 0.1 + 0.3,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    percentText.textContent = Math.round(counter.value) + '%';
+                }
+            }, 0);
+        });
+
+        // Timeline Items Animation
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            const marker = item.querySelector('.timeline-marker');
+            const content = item.querySelector('.timeline-content');
+            const stats = item.querySelectorAll('.timeline-stat');
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Pop in the marker
+            tl.fromTo(marker,
+                { scale: 0, rotation: -90 },
+                { scale: 1, rotation: 0, duration: 0.6, ease: 'back.out(2)' }
+            );
+
+            // Slide in the content
+            tl.fromTo(content,
+                { x: 100, opacity: 0 },
+                { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+                '-=0.3'
+            );
+
+            // Stagger in the stats
+            tl.fromTo(stats,
+                { y: 20, opacity: 0, scale: 0.8 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4,
+                    stagger: 0.1,
+                    ease: 'back.out(1.5)'
+                },
+                '-=0.4'
+            );
+        });
+
+        // Certification Cards Animation
+        gsap.utils.toArray('.cert-card').forEach((card, index) => {
+            const icon = card.querySelector('i, svg');
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+
+            // Card flip/scale in
+            tl.fromTo(card,
+                { scale: 0.5, rotationY: 90, opacity: 0 },
+                {
+                    scale: 1,
+                    rotationY: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: 'back.out(1.7)'
+                }
+            );
+
+            // Spin the icon
+            if (icon) {
+                tl.fromTo(icon,
+                    { rotation: -360, scale: 0 },
+                    { rotation: 0, scale: 1, duration: 0.6, ease: 'elastic.out(1, 0.5)' },
+                    '-=0.4'
+                );
+            }
+        });
+
+        // Add shimmer animation to bar fills
+        const style = document.createElement('style');
+        style.textContent = `
+            .bar-fill {
+                background-size: 200% 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .bar-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                animation: shimmer 2s ease-in-out infinite;
+                animation-delay: var(--shimmer-delay, 0s);
+            }
+            @keyframes shimmer {
+                0% { left: -100%; }
+                100% { left: 200%; }
+            }
+            .circular-chart {
+                perspective: 500px;
+            }
+            .circular-chart svg {
+                transition: filter 0.3s ease;
+            }
+            .circular-chart:hover svg {
+                filter: drop-shadow(0 0 25px currentColor);
+            }
+            .timeline-marker {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .timeline-marker:hover {
+                transform: scale(1.2);
+                box-shadow: 0 0 25px var(--cyan);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add shimmer delay to each bar
+        document.querySelectorAll('.bar-fill').forEach((bar, index) => {
+            bar.style.setProperty('--shimmer-delay', (index * 0.3) + 's');
+        });
+    </script>
+</body>
+
+</html>
