@@ -20,15 +20,17 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 body {
     font-family: 'Space Grotesk', sans-serif;
     background: var(--dark);
     color: #fff;
-    overflow-x: hidden;
     min-height: 100vh;
 }
 
@@ -1838,5 +1840,301 @@ body {
 
     .scroll-indicator {
         display: none;
+    }
+}
+
+/* ===== About Page Mobile Responsive Enhancements ===== */
+@media (max-width: 768px) {
+
+    /* Bio Section Mobile */
+    .bio-section {
+        padding: 30px 16px 60px;
+    }
+
+    .bio-container {
+        gap: 30px;
+    }
+
+    .bio-content {
+        text-align: center;
+    }
+
+    .bio-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        text-align: justify;
+    }
+
+    .bio-highlights {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .highlight-item {
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 50px;
+        font-size: 0.9rem;
+    }
+
+    /* Skills Section Mobile */
+    .skills-section {
+        padding: 60px 16px;
+    }
+
+    .skills-section .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    /* Circular Charts Mobile Improvements */
+    .circular-charts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+        padding: 0 10px;
+    }
+
+    .circular-chart {
+        width: 110px;
+        height: 110px;
+    }
+
+    .circular-chart svg {
+        width: 110px;
+        height: 110px;
+    }
+
+    .circular-chart circle {
+        stroke-width: 6;
+    }
+
+    .chart-label .percent {
+        font-size: 1.3rem;
+    }
+
+    .chart-label .name {
+        font-size: 0.65rem;
+    }
+
+    /* Bar Charts Mobile Improvements */
+    .chart-container {
+        padding: 16px;
+        margin-top: 20px;
+    }
+
+    .chart-container h3 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+    .bar-chart {
+        gap: 14px;
+    }
+
+    .bar-item {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .bar-label {
+        min-width: 100%;
+        margin-bottom: 4px;
+        font-size: 0.85rem;
+    }
+
+    .bar-label i {
+        font-size: 18px;
+    }
+
+    .bar-track {
+        flex: 1;
+        height: 10px;
+        order: 1;
+    }
+
+    .bar-percent {
+        min-width: auto;
+        font-size: 0.8rem;
+        order: 2;
+    }
+
+    /* Timeline Section Mobile */
+    .timeline-section {
+        padding: 60px 16px;
+    }
+
+    .timeline {
+        max-width: 100%;
+        margin: 30px auto 0;
+        padding-right: 0;
+    }
+
+    .timeline::before {
+        left: 14px;
+        width: 2px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+        margin-bottom: 24px;
+    }
+
+    .timeline-marker {
+        left: 2px;
+        width: 26px;
+        height: 26px;
+    }
+
+    .timeline-marker svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-content {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .timeline-date {
+        font-size: 0.75rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+        margin: 6px 0 4px;
+    }
+
+    .timeline-company {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .timeline-stats {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+    }
+
+    .timeline-stat {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    .timeline-stat i {
+        font-size: 14px;
+    }
+
+    /* Certifications Section Mobile */
+    .certifications-section {
+        padding: 60px 16px 80px;
+    }
+
+    .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .cert-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .cert-card i {
+        font-size: 36px !important;
+    }
+
+    .cert-card svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cert-card h3 {
+        font-size: 0.85rem;
+        margin: 10px 0 4px;
+        line-height: 1.3;
+    }
+
+    .cert-card p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra Small Screens (below 480px) */
+@media (max-width: 480px) {
+
+    /* Circular Charts Extra Small */
+    .circular-charts {
+        gap: 16px;
+        padding: 0;
+    }
+
+    .circular-chart {
+        width: 95px;
+        height: 95px;
+    }
+
+    .circular-chart svg {
+        width: 95px;
+        height: 95px;
+    }
+
+    .chart-label .percent {
+        font-size: 1.1rem;
+    }
+
+    .chart-label .name {
+        font-size: 0.6rem;
+    }
+
+    /* Certifications Extra Small */
+    .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .cert-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 16px;
+        padding: 14px 18px;
+        text-align: left;
+    }
+
+    .cert-card i,
+    .cert-card svg {
+        margin-bottom: 0;
+    }
+
+    .cert-card h3 {
+        margin: 0 0 4px;
+    }
+
+    /* Timeline Extra Small */
+    .timeline-item {
+        padding-left: 42px;
+    }
+
+    .timeline::before {
+        left: 12px;
+    }
+
+    .timeline-marker {
+        left: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    .timeline-content {
+        padding: 12px;
     }
 }

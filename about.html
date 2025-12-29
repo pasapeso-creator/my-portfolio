@@ -378,14 +378,7 @@
     <!-- Bio Section with Floating Icons -->
     <section class="bio-section">
         <div class="bio-container">
-            <div class="bio-image reveal floating-tech-icons">
-                <!-- Floating Tech Icons -->
-                <div class="tech-icon-float pos-1"><i class="devicon-html5-plain colored"></i></div>
-                <div class="tech-icon-float pos-2"><i class="devicon-css3-plain colored"></i></div>
-                <div class="tech-icon-float pos-3"><i class="devicon-javascript-plain colored"></i></div>
-                <div class="tech-icon-float pos-4"><i class="devicon-react-original colored"></i></div>
-                <div class="tech-icon-float pos-5"><i class="devicon-nodejs-plain colored"></i></div>
-                <div class="tech-icon-float pos-6"><i class="devicon-python-plain colored"></i></div>
+            <div class="bio-image reveal">
 
                 <div class="image-frame-wrapper">
                     <div class="image-frame large">
@@ -695,23 +688,6 @@
     <script>
         // ===== Professional GSAP Chart Animations =====
         gsap.registerPlugin(ScrollTrigger);
-
-        // Animate floating tech icons with stagger
-        gsap.fromTo('.tech-icon-float',
-            { scale: 0, opacity: 0, rotation: -180 },
-            {
-                scale: 1,
-                opacity: 1,
-                rotation: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'elastic.out(1, 0.5)',
-                scrollTrigger: {
-                    trigger: '.floating-tech-icons',
-                    start: 'top 80%'
-                }
-            }
-        );
 
         // Circular Charts Animation
         const circularCharts = document.querySelectorAll('.circular-chart');
